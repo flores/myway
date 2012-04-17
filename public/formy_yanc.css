@@ -1,0 +1,91 @@
+/*  
+  almost all Formy v0.8
+  http://code.google.com/p/formy-css-framework/
+*/
+
+*
+ { font-family: "Myriad Pro", Arial, sans-serif; }
+
+#yield {
+    align: center;
+    width: 65em; 
+    margin: 0 auto; 
+    margin-top: 3em;
+  }
+
+fieldset, form, label, legend, submit, div, yanc
+ { font-weight:normal;font-size:100%; vertical-align:baseline; }
+
+#footer
+ { padding:0;border:0;font-weight:normal;font-size:0.9em; vertical-align:baseline; text-align: left}
+
+/* 
+	Structural
+*/
+
+fieldset
+	{ margin: 0 0 1.5em 0; padding: 1.4em;  }
+
+legend
+	{ padding: 0 .4em; font-size:1.2em;  }
+
+
+label	 
+	{ float: left; clear: left; width: 30em; display:block; margin-right:1em; text-align:right;  cursor:hand; }
+
+/*
+textarea, input, select, label, button, optgroup
+	{ margin-top:5px; }
+*/
+
+input[type="checkbox"] ,input[type="radio"]
+	{ margin-bottom:7px; }	
+
+	
+/* 
+	Color palette
+*/
+
+fieldset
+	{ border:1px solid #ccc; }
+	
+legend
+	{ background-color: #e3dfdf; color: #333; }
+	
+/* 
+label
+	{ color:#333; }
+*/
+	
+textarea
+	{ border: 1px solid #666; }
+
+textarea:focus, input[type="text"]:focus  
+	{ border: 2px solid #666; }
+
+select
+	{  background-color: #fff; color: #000; font-weight:normal;font-size:100%; }
+
+input[type="text"]
+	{ border: 1px solid #666; }
+
+input[id="submit"]
+	{  background-color: #fff; color: #000; width: 10em; }
+input[id="results"]
+	{  margin-left: 0; background-color: #fff; color: #000; width:330px; }
+
+input[type="checkbox"]
+	{ color: #000; }
+
+input[type="radio"]
+	{  background-color: #fff; color: #000; }
+
+option
+	{ background-color:#fff; color:#000; font-weight:normal; font-size:100% ; }
+
+optgroup
+	{ background-color:#ccc; color:#000; }
+
+button
+	{ background-color: #ccc; color: #333; }
+
