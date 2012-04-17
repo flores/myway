@@ -2,7 +2,7 @@
 
 require 'rubygems'
 require 'sinatra'
-require 'haml'
+require 'erb'
 require 'sanitize'
 require 'aws/ses'
 require 'openssl'
@@ -14,10 +14,14 @@ set :port, '4000'
 EMAIL = 'me@mydomain.com'
 
 get '/' do
+  erb :impress
+end
+
+get '/contact' do
   haml :contact
 end
 
-post '/' do
+post '/contact' do
   name = Sanitize.clean(params[:name])
   mail = Sanitize.clean(params[:mail])
   subject = Sanitize.clean(params[:subject])
