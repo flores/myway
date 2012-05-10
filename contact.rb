@@ -41,6 +41,8 @@ post '/contact' do
     :body => "subject: " + params[:subject] + "\nname: " + 
       params[:name] + "\n\n" + params[:body]
   )
+
+  @name = params[:name]
   erb :success
 end
 
