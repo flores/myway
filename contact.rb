@@ -30,12 +30,6 @@ post '/contact' do
     Sanitize.clean(param)
   end
 
-
-  name = Sanitize.clean(params[:name])
-  mail = Sanitize.clean(params[:mail])
-  subject = Sanitize.clean(params[:subject])
-  body = params[:body]
-
   ses = AWS::SES::Base.new(
     :access_key_id  => 'id',
     :secret_access_key => 'key'
@@ -43,17 +37,13 @@ post '/contact' do
   ses.send_email(
     :to => EMAIL, 
     :from => EMAIL, 
-    :subject => mail + " sent you a message",
-    :body => "subject: " + subject + "\nname: " + 
-      name + "\n\n" + body
+    :subject => params[:mail] + " sent you a message",
+    :body => "subject: " + params[:subject] + "\nname: " + 
+      params[:name] + "\n\n" + params[:body]
   )
   erb :success
 end
 
-get '/formy_yanc.css' do
-  File.read(File.join('public', 'formy_yanc.css'))
-end
-
 error do
-  haml :error
+  erb :error
 end
