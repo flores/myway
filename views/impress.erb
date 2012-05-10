@@ -1,0 +1,166 @@
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,700italic,300,400,800' rel='stylesheet' type='text/css'>
+  <link href="https://raw.github.com/flores/impress.js/master/css/impress-demo.css" rel="stylesheet" />
+  <style>
+  #gist1 {
+    width:800px;
+    height:700px;
+  }
+  backend {
+    font-size: 0.5em;
+  }
+  pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; font-family: "Courier"; font-size:0.8em; }
+  </style>
+</head>
+
+<body onload="init();">
+
+  <div id="impress" class="impress-not-supported">
+
+  <div class="fallback-message">
+  </div>
+
+  <div class="step" data-x="-2500" data-y="150">
+    <% if @newtitle %>
+      <%= @newtitle %>
+    <% end %>
+  </div>
+  
+  <div class="step" data-x="-2160" data-y="150">
+    Carlo Flores</br>
+    www.spire.io
+  </div>
+
+  <div class="step" data-x="-2160" data-y="300">
+    <q>meetup.com/ladevops</q>
+  </div>
+  
+  <div class="step" data-x="-2160" data-y="350">
+    <q>js.la</q>
+  </div>
+
+  <div class="step" data-x="-2160" data-y="400">
+    Los Angeles Hack Night     
+  </div>
+
+  <div class="step" data-x="800" data-y="-200" data-scale="5">
+    "I have an idea for an app."</br>
+    "I want to learn how to program."</br>
+    "Can you help?"</br>
+  </div>
+
+  <div class="step" data-x="-850" data-y="350">
+    <q>Sure.</q>
+  </div>
+
+  <div class="step" data-x="-450" data-y="350">
+    #Protip: just build <em>something</em>...
+  </div>
+
+  <div class="step" data-x="200" data-y="350">
+    and it's okay if it's simple...
+  </div>
+
+  <div class="step" data-x="800" data-y="350">
+    but keep building.
+  </div>
+
+  <div class="step" data-x="0" data-y="600">
+    Web apps!
+  </div>
+
+  <div class="step" data-x="-1000" data-y="1000">
+    <img src="/img/twitter.png">
+  </div>
+    
+  <div class="step" data-x="0" data-y="1000">
+    <img src="/img/github.png">
+  </div>
+
+  <div class="step" data-x="1000" data-y="1000">
+    <img src="/img/thisismyjam.png">
+  </div>
+  
+  <div class="step" data-x="-1000" data-y="1600">
+    Two methods
+  </div>
+
+  <div class="step" data-x="-1000" data-y="1800">
+    The user GETs a form </br>
+    <img src="/img/get.jpg">
+  </div>
+  
+  <div class="step" data-x="-1000" data-y="2300">
+    The user POSTs a form </br>
+    <img src="/img/post.jpg">
+  </div>
+
+  <div class="step" data-x="-1000" data-y="2800">
+    (there are more methods.  let's keep it simple.)
+  </div>
+
+  <div class="step" data-x="-2750" data-y="-2100">
+    Yadda yadda yadda
+  </div>
+
+  <div class="step" data-x="-2750" data-y="-1750">
+    <img src="/img/contact.png">
+  </div>
+
+  <div class="step" data-x="-2750" data-y="-1300">
+    https://github.com/flores/myway
+  </div>
+
+  <div class="step" data-x="-1250" data-y="-2100">
+    Sinatra!</br>
+    sinatrarb.com
+  </div>
+
+  <div class="step" data-x="-1250" data-y="-1700">
+    Routes
+  </div>
+  
+  <div class="step" data-x="-1250" data-y="-1500">
+  <pre>
+  get '/title/:newtitle' do |t|
+    "let's talk about #{t}"
+  end
+  </pre>
+  </div>
+
+  <div class="step" data-x="-1250" data-y="-1200">
+  <pre>
+  get '/' do
+    erb :thispresentation
+  end
+  </pre>
+  </div>
+
+  <div class="step" data-x="250" data-y="-2100">
+    WTF is erb?
+  </div>
+
+  <div class="step" data-x="250" data-y="-1900">
+    WTF is a templating system?
+  </div>
+
+  <div class="step" data-x="250" data-y="-1600">
+    <img src="/img/template.png">  
+  </div>
+
+  <div class="step" data-x="250" data-y="-1200">
+    Saves time.  Talks HTML.  Lets us act on variables.
+  </div>
+
+  <div class="step" data-x="1250" data-y="-2100">
+    <img src="/img/FUUUUUUUUUUUUUUUU.jpg">
+  </div>
+
+  <div class="step" data-x="1250" data-y="-1600">
+    <img src="/img/me-gusta.jpg">
+  </div>
+
+  </div>
+  <script src="https://raw.github.com/flores/impress.js/master/js/impress.js"></script>
+	
+</body>
