@@ -10,4 +10,5 @@ After starting [Los Angeles Hack Night](http://www.meetup.com/Los-Angeles-Hack-N
 by just how many of our members are beginners looking to build their first project.
 
 This lightning talk was simply to get some folks started on their first web app, and to provide some
-foundation and introduction to the [Sinatra Micro Web Framework](http://sinatrarb.com) to get folks going.
+foundation and introduction to the [Sinatra Micro Web Framework](http://sinatrarb.com) and simple webforms
+to get folks going, followed by Q&A and hackary!
