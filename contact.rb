@@ -3,7 +3,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'erb'
-require 'sanitize'
+#require 'sanitize'
 require 'aws/ses'
 
 set :environment, :production
@@ -16,6 +16,10 @@ get '/' do
   erb :impress
 end
 
+get '/reveal' do
+  erb :reveal, :layout => false
+end
+
 get '/title/:newtitle' do
   @newtitle = params[:newtitle]
   erb :impress
@@ -26,9 +30,9 @@ get '/contact' do
 end
 
 post '/contact' do
-  params.collect! do |param|
-    Sanitize.clean(param)
-  end
+#  params.collect! do |param|
+#    Sanitize.clean(param)
+#  end
 
   ses = AWS::SES::Base.new(
     :access_key_id  => 'id',
