@@ -57,6 +57,11 @@
 	<section>
 	  <p>
 	    grab this presentation at<br/>
+	    <a href="http://contact.rota.la/preso">contact.rota.la</a>
+	  </p>
+	  <p>
+	    grab code examples at<br/>
+	    <a href="https://github.com/flores/myway">github.com/flores/myway</a>
 	  </p>
 	</section>
         
@@ -108,16 +113,54 @@
           <section>
 	    Be easy to respond to requests by some user
 	  </section>
-
+	</section>
+	
+	<section>
 	  <section>
 	    The coolest hello world ever
 	  </section>
-
 	  <section>
+            <h2><a href="http://sinatrarb.com">Sinatra.rb</a></h2>  
+	      <p class="fragment">install ruby</p>
+	      <p class="fragment">install sinatra (gem install sinatra)</p>
 	  </section>
 	  <section>
+	    <pre><code data-trim>
+require 'sinatra.rb'
+		
+get '/' do
+  "Hello world"
+end
+	    </code></pre>
 	  </section>
 	</section>
+
+	<section>
+	  <section>
+	    Routes!
+	  </section>
+
+	  <section>
+	    <pre><code data-trim>
+require 'sinatra.rb'
+		
+get '/' do
+  "Hello world"
+end
+
+get '/hello/:name' do
+  "Hello " + params[:word]
+end
+	    </code></pre>
+	
+	  </section>
+	  
+	  <section>
+	    <img src="/img/sweet-jesus.gif" alt="sweet jesus mother of god"/>
+	  </section>
+
+	</section>
+
 
 	<section>
 	  <p>

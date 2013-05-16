@@ -13,10 +13,6 @@ set :port, '4000'
 EMAIL = 'me@mydomain.com'
 
 get '/' do
-  erb :impress
-end
-
-get '/reveal' do
   erb :reveal, :layout => false
 end
 
