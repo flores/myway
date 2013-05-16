@@ -82,17 +82,23 @@
 	    <p class="fragment">install mod perl, configure web server</p>	
 	    <p class="fragment">install perl cgi and stuff</p>	
 	  </section>
+	  <section>
+	    <p><img src="/img/N36mMWf.gif" alt="kitten jump fail"/></p>	
+	  </section>	    
 	  
 	  <section>
             <h2>Ruby</h2>
 	    <p class="fragment">install ruby/rubygems</p>	
 	    <p class="fragment">install rails</p>	
 	    <p class="fragment">explodify rails (rails new ...)</p>	
-	    <p class="fragment">bagillionty directories</p>	
-	    <p class="fragment">i don't even...</p>	
+	    <p class="fragment">bagillionty directories</p>
 	  </section>
-          
-	</section>
+        
+	  <section>
+	  <p><img src="/anigif_enhanced-buzz-12810-1366465643-2.gif" 
+	    alt="fuck this fuck that"/></p>	
+	  </section>	    
+       </section>
 
 	<section>
 	  <h2>Micro web frameworks!</h2>
@@ -125,6 +131,9 @@
 	      <p class="fragment">install sinatra (gem install sinatra)</p>
 	  </section>
 	  <section>
+	    <p><img src="/img/1297064511_11.gif" alt="maru success"/></p>	
+	  </section>
+	  <section>
 	    <pre><code data-trim>
 require 'sinatra.rb'
 		
@@ -149,7 +158,7 @@ get '/' do
 end
 
 get '/hello/:name' do
-  "Hello " + params[:word]
+  "Hello " + params[:name]
 end
 	    </code></pre>
 
@@ -188,7 +197,7 @@ end
 	  </section>
 	  
 	  <section>
-	    <img src="/img/sweet-jesus.gif" alt="sweet jesus mother of god"/>
+	    <img src="/img/tumblr_lzrs23ZiLu1qidarg.gif" alt="sweet jesus mother of god"/>
 	  </section>
 
 	</section>
@@ -217,35 +226,75 @@ end
 	  </section>
 
 	  <section>
+	    erb templates
+	    <p class="fragment">we use a layout for consistent elements
+	      on a page"</p>
+	    <p class="fragment">we'll insert route specific items into that
+	      layout</p>
+	  </section>
+
+	  <section>
+	    views/layout.erb
 	    <pre><code data-trim>
+&lt;html>
+  &lt;head>
+    &lt;title>my contact form!&lt;/title>
+  &lt;/head>
+
+  &lt;body>
+    &lt;strong>mail a nerd</strong>
+    &lt;%= yield %>
+  &lt;/body>
+&lt;/html>
+	    </code></pre>
+	  </section>
+
+	  <section>
+	    views/contact.erb
+	    <pre><code data-trim>
+&lt;form action='/contact' method='post'>
+  &lt;p>
+    &lt;label>name:&lt;/label> 
+    &lt;input class='text' name='name' type='text' /> 
+  &lt;/p> 
+  
+  &lt;p>
+    &lt;label>email:&lt;/label> 
+    &lt;input class='text' name='mail' type='text' /> 
+  &lt;/p> 
+  
+  &lt;p>
+    &lt;label>subject:&lt;/label> 
+    &lt;input class='text' name='subject' type='text' /> 
+  &lt;/p> 
+  
+  &lt;p>
+    &lt;label>message:&lt;/label> 
+    &lt;textarea name='body'>&lt;/textarea> 
+  &lt;/p> 
+  
+  &lt;p>
+    &lt;input id='submit' type='submit' value='send' /> 
+  &lt;/p> 
+&lt;form>	    
+	    </code></pre>
+	  </section>
+	  
+	  <section>
+	    and our app.rb
+	    <pre><code data-trim>
+require 'sinatra.rb'
+
 get '/contact' do
   erb :contact
 end
 	    </code></pre>
 	  </section>
 	  
+
+
 	  <section>
-	    <pre><code data-trim>
-&lt;form action='/contact' method='post'> 
-  &lt;label>name:&lt;/label> 
-  &lt;input class='text' name='name' type='text' /> 
-  
-  &lt;label>email:&lt;/label> 
-  &lt;input class='text' name='mail' type='text' /> 
-  
-  &lt;label>subject:&lt;/label> 
-  &lt;input class='text' name='subject' type='text' /> 
-  
-  &lt;label>message:&lt;/label> 
-  &lt;textarea name='body'>&lt;/textarea> 
-  
-  &lt;center> 
-    &lt;input id='submit' type='submit' value='send' /> 
-  &lt;/center> 
-&lt;form>	    
-	    </code></pre>
 	  </section>
-	  
 	</section>
 
 
