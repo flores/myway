@@ -200,6 +200,56 @@ end
 	</section>
 
 	<section>
+	  <section>
+	    <h2>Some stupid 30 minute (and more) projects</h2>
+	  </section>
+	</section>
+
+	<section>
+	  <section>
+	    <h2>A contact form</h2>
+	  </section>
+
+	  <section>
+	    use erb (templating, native)
+	    <p class="fragment">install aws-ses (cheap emailing)</p>
+	    <p class="fragment">install sanitize (optional)</p>
+	  </section>
+
+	  <section>
+	    <pre><code data-trim>
+get '/contact' do
+  erb :contact
+end
+	    </code></pre>
+	  </section>
+	  
+	  <section>
+	    <pre><code data-trim>
+<form action='/contact' method='post'> 
+  <label>name:</label> 
+  <input class='text' name='name' type='text' /> 
+  
+  <label>email:</label> 
+  <input class='text' name='mail' type='text' /> 
+  
+  <label>subject:</label> 
+  <input class='text' name='subject' type='text' /> 
+  
+  <label>message:</label> 
+  <textarea name='body'></textarea> 
+  
+  <center> 
+    <input id='submit' type='submit' value='send' /> 
+  </center> 
+</form>	    
+	    </code></pre>
+	  </section>
+	  
+	</section>
+
+
+	<section>
 	  <p>
 	    <a href="http://edgecast.com">EdgeCast</a><br />
 	  </p>
