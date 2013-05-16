@@ -73,7 +73,7 @@
 	  <h2>How to build big programs:</h2>
 	  <p class="fragment">
 	    <strong>don't build big programs</strong>
-	    - <a href="https://github.com/substack">@substack</a>
+	    <p> - <a href="https://github.com/substack">@substack</a></p>
 	  </p>
 	</section>
 	<section>
@@ -360,8 +360,8 @@ Thanks for your email, &lt;%= @name =>!
 	  <section>
 	    want to avoid verbose error messages?
 	    <pre><code data-trim>
-set :environment, :production                                                   
-	    </pre></code>
+set :environment, :production
+            </pre></code>
 	  </section>
 
 	  <section>
@@ -377,6 +377,16 @@ end
 	    </pre></code>
 	  </section>
 
+	  <section>
+	    want to serve static files?
+	    <p class="fragment">stick them in public/ !</p>
+	    <p class="fragment">want to serve from a custom directory?</p>
+	    <p class="fragment">
+	    <pre><code data-trim>
+set :public_folder, '/customdirectory'
+	    </code></pre>
+	    </p>
+	  </section>
 	  <section>
 	    want a more structured app and include tests and things?
 	    <p class="fragment">
