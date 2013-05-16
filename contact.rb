@@ -3,7 +3,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'erb'
-#require 'sanitize'
+require 'sanitize'
 require 'aws/ses'
 
 set :environment, :production
@@ -30,9 +30,9 @@ get '/contact' do
 end
 
 post '/contact' do
-#  params.collect! do |param|
-#    Sanitize.clean(param)
-#  end
+  params.collect! do |param|
+    Sanitize.clean(param)
+  end
 
   ses = AWS::SES::Base.new(
     :access_key_id  => 'id',
