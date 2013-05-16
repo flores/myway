@@ -16,6 +16,10 @@ get '/' do
   erb :reveal, :layout => false
 end
 
+get '/preso' do 
+  erb :reveal, :layout => false
+end
+
 get '/title/:newtitle' do
   @newtitle = params[:newtitle]
   erb :impress
