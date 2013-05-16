@@ -70,9 +70,9 @@
 	</section>
 
 	<section>
-	  <h2>How to build big programs</h2>
+	  <h2>How to build big programs:</h2>
 	  <p class="fragment">
-	    <h3>don't build big programs</h3>
+	    <strong>don't build big programs</strong>
 	    - <a href="https://github.com/substack">@substack</a>
 	  </p>
 	</section>
@@ -96,7 +96,7 @@
 	  </section>	    
 	  
 	  <section>
-            <h2>Ruby</h2>
+            <h2>Ruby on Rails</h2>
 	    <p class="fragment">install ruby/rubygems</p>	
 	    <p class="fragment">install rails</p>	
 	    <p class="fragment">explodify rails (rails new ...)</p>	
@@ -208,6 +208,10 @@ end
 	  <section>
 	    <img src="/img/tumblr_lzrs23ZiLu1qidarg.gif" alt="sweet jesus mother of god"/>
 	  </section>
+	  
+	  <section>
+	    Make these <a href="https://github.com/flores/myway/tree/master/examples">examples</a> better!
+	  </section>
 
 	</section>
 
@@ -224,14 +228,15 @@ end
 
 	  <section>
 	    use erb (templating, native)
-	    <p class="fragment">install aws-ses (cheap emailing)</p>
+	    <p class="fragment">install aws-ses (cheap emailing)*<br/>
+	      * requires an Amazon Web Services account</p>
 	    <p class="fragment">install sanitize (optional)</p>
 	  </section>
 
 	  <section>
 	    erb templates
 	    <p class="fragment">we use a layout for consistent elements
-	      on a page"</p>
+	      on a page</p>
 	    <p class="fragment">we'll insert route specific items into that
 	      layout</p>
 	  </section>
@@ -245,7 +250,7 @@ end
   &lt;/head>
 
   &lt;body>
-    &lt;strong>mail a nerd</strong>
+    &lt;strong>email me&lt;/strong>
     &lt;%= yield %>
   &lt;/body>
 &lt;/html>
@@ -293,11 +298,55 @@ get '/contact' do
 end
 	    </code></pre>
 	  </section>
-	  
+ 
+	  <section>
+	    (we can rub some css on it later)
+	  </section>
 
+	</section>
+	<section>
+	
+	  <section>
+	    POSTing the data from the form
+	  </section>
 
 	  <section>
+	    everything lives in params
 	  </section>
+
+	  <section>
+	    into our app.rb
+	    <pre><code data-trim>
+post '/contact' do                                                              
+  params.collect! do |param|                                                   
+    Sanitize.clean(param)                                                      
+  end                                                                          
+                                                                                
+  ses = AWS::SES::Base.new(                                                     
+    :access_key_id  => 'id',                                                    
+    :secret_access_key => 'key'                                                 
+  )                                                                             
+  ses.send_email(                                                               
+    :to => EMAIL,                                                               
+    :from => EMAIL,                                                             
+    :subject => params[:mail] + " sent you a message",                          
+    :body => "subject: " + params[:subject] + "\nname: " +                      
+      params[:name] + "\n\n" + params[:body]                                    
+  )                                                                             
+                                                                                
+  @name = params[:name]                                                         
+  erb :success                                                                  
+end
+	    </code></pre>
+	  </section>
+
+	  <section>
+	    views/success.erb
+	    <pre><code data-trim>
+Thanks for your email, &lt;%= @name =>!
+	    </code></pre>
+	  </section>
+
 	</section>
 
 
