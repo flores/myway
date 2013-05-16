@@ -7,7 +7,7 @@ require 'erb'
 require 'aws/ses'
 
 set :environment, :production
-set :port, '4000'
+set :port, '6000'
 #set :bind, 'localhost'
 
 EMAIL = 'me@mydomain.com'
