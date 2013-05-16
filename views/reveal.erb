@@ -152,6 +152,35 @@ get '/hello/:name' do
   "Hello " + params[:word]
 end
 	    </code></pre>
+
+	  <section>
+	    Logic!
+	  </section>	  
+	  <section>
+	    <pre><code data-trim>
+require 'sinatra.rb'
+
+def check_if_carlo(name)
+  if name == 'carlo'
+    return true
+  else
+    return false
+  end
+end
+
+get '/' do
+  "Hello world"
+end
+
+get '/hello/:name' do
+  name = params[:name]
+  if check_if_carlo(name)
+    "Hey " + name + ", I know you!"
+  else
+    "Hello " + name
+  end
+end
+	    </code></pre>
 	
 	  </section>
 	  
@@ -163,6 +192,7 @@ end
 
 	<section>
 	  <section>
+	    
 	  </section>
 	</section>
 
