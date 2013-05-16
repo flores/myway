@@ -195,7 +195,103 @@ end
 
 	<section>
 	  <section>
-	    <h2>Some stupid 30 minute (and more) projects</h2>
+	    <h2>A URL shortener</h2>
+	    <p class="fragment">for you to improve</p>
+	  </section>
+
+	  <section>
+	    <h2>What we want</h2>
+	  </section>
+
+	  <section>
+	    <h2>Requests to shorten</h2>
+	    <p class="fragment">if i get a request to shorten a url, 
+	      i should shorten it</p>
+	    <p class="fragment">if i've already shortened that exact url,
+	      i should use the same shortened address</p>
+	  </section>
+
+	  <section>
+	    <h2>Requests for shortened links</h2>
+	    <p class="fragment">if i get a request for a short url, i should
+	      redirect the user to the original url</p>
+	    <p class="fragment">if i do not know the shortened url, i should
+	      tell that to the user</p>
+	  </section>
+
+	  <section>
+	    database is smart. but let's do this one without external dependencies.
+	  </section>
+	  <section>
+	    <h2>shorten a url</h2>
+	    <pre><code data-trim>
+get '/shorten/*' do
+  link = params[:splat].join('/')
+  if link !~ /^http:/
+    link = "http://#{link}"
+  end
+  shortlink = searchlinks(link)
+  if shortlink
+    "contact.rota.la/go/" + shortlink
+  else
+    "contact.rota.la/go/" + createlink(link)
+  end
+end
+	    </code></pre>
+	  </section> 
+	  <section>
+	    <pre><code data-trim>
+def createlink(link)
+  string = Array.new(5){rand(36).to_s(36)}.join
+  until searchshortener(string)
+    string = Array.new(5){rand(36).to_s(36)}.join
+  end 
+  File.open(LINKS, "a") do |file|
+    file.write string + " " + link + "\n" 
+  end
+  return string
+end	    
+</code></pre>
+           </section>
+
+	  <section>
+	    <pre><code data-trim>
+def searchlinks(link)
+  match = nil
+  File.open(LINKS, "r") do |file|
+    file.each do |line|
+      if line =~ /(.+?)\s#{link}$/
+        match = $1
+	break
+      end
+    end
+  end
+  return match
+end            
+	    </pre></code>
+	  </section>
+	  <section>
+	    how would you make it better?
+	  </section>
+	  <section>
+	    <h2>get the original link from a short url</h2>
+            <pre><code data-trim>
+def getlink(short)
+  match = nil
+  File.open(LINKS, "r") do |file|
+    file.each do |line|
+      if line =~ /^#{short}\s(.+)$/
+	match = $1
+	break
+      end
+    end
+  end
+  return match
+end
+	    </pre></code>
+	  </section>
+	  <section>
+	    <h2>the route
 	  </section>
 	</section>
 
