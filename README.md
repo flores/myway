@@ -2,7 +2,7 @@
 
 ![sinatra](http://www.nndb.com/people/300/000026222/frank-sinatra-mugshot-nndb.jpg)
 
-[sings](http://www.youtube.com/watch?v=sEbgB6X6S5c)
+[sings](http://www.youtube.com/watch?v=egY8rUpxqcE)
 
 ## wtf
 
