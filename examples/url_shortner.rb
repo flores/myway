@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
- 
+
 LINKS='linksfile'
 
 def createlink(link)
@@ -67,13 +67,18 @@ end
  
 get '/shorten/*' do
   link = params[:splat].join('/')
-  if link !~ /^http:/
+  if link !~ /^http(s?:)/
     link = "http://#{link}"
   end
   shortlink = searchlinks(link)
   if shortlink
-    "dev.sma.edgecastcdn.net/go/" + shortlink
+    request.host + shortlink
   else
-    "dev.sma.edgecastcdn.net/go/" + createlink(link)
+    request.host + createlink(link)
   end
 end
+
+error do
+  erb :error
+end
+
