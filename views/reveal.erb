@@ -292,6 +292,9 @@ end
 	    and our app.rb
 	    <pre><code data-trim>
 require 'sinatra.rb'
+require 'erb'
+require 'sanitize'
+require 'aws/ses'
 
 get '/contact' do
   erb :contact
