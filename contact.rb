@@ -29,24 +29,20 @@ get '/contact' do
   erb :contact
 end
 
-post '/contact' do
-  params.collect! do |param|
-    Sanitize.clean(param)
-  end
-
+post '/' do
+  @name = Sanitize.clean(params[:name])
+  mail = Sanitize.clean(params[:mail])
+  subject = Sanitize.clean(params[:subject])
+  body = params[:body]
   ses = AWS::SES::Base.new(
     :access_key_id  => 'id',
     :secret_access_key => 'key'
   )
   ses.send_email(
-    :to => EMAIL, 
-    :from => EMAIL, 
-    :subject => params[:mail] + " sent you a message",
-    :body => "subject: " + params[:subject] + "\nname: " + 
-      params[:name] + "\n\n" + params[:body]
+    :to => YOUR_EMAIL,              
+    :from => 'tonina@petalphile.com',
+    :subject => mail + " - " + @name + " - " + subject,
+    :body => body
   )
-
-  @name = params[:name]
   erb :success
 end
-
